@@ -1,3 +1,4 @@
 /.idea
 /.venv
 /bookr/__pychache__/
+/secret_key.json
