@@ -2,3 +2,4 @@
 /.venv
 /secret_key.json
 /bookr/__pycache__/
+/reviews/__pycache__/
