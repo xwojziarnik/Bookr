@@ -48,7 +48,7 @@ class BookContributor(models.Model):
 
 class Review(models.Model):
     content = models.TextField(help_text="Tekst recenzji.")
-    taring = models.IntegerField(help_text="Ocena użytkownika.")
+    rating = models.IntegerField(help_text="Ocena użytkownika.")
     date_created = models.DateTimeField(auto_now_add=True, help_text="Data i czas utworzenia recenzji.")
     date_edited = models.DateTimeField(null=True, help_text="Data i czas ostatniej edycji recenzji.")
     creator = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
