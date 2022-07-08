@@ -5,3 +5,5 @@
 /reviews/__pycache__/
 /reviews/migrations/__pycache__/
 __pycache__/
+business_site/
+.DS_Store
