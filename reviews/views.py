@@ -4,7 +4,7 @@ from .utils import average_rating
 
 
 def index(request):
-    return render(request, "reviews/base.html")
+    return render(request, "reviews/reviews_base.html")
 
 
 def book_list(request):
@@ -27,7 +27,7 @@ def book_list(request):
         context = {
             "book_list": book_list
         }
-    return render(request, 'book_list.html', context)
+    return render(request, 'reviews/book_list.html', context)
 
 
 def book_detail(request, pk):
@@ -46,4 +46,4 @@ def book_detail(request, pk):
             "book_rating": None,
             "reviews": None
         }
-    return render(request, "book_detail.html", context)
+    return render(request, "reviews/book_detail.html", context)
