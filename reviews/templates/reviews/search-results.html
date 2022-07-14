@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Wyniki wyszukiwania: {{ search_text }}</title>
-</head>
-<body>
-<h1>Wyniki wyszukiwania dla <em>{{ search_text }}</em></h1>
-</body>
-</html>
+{% extends 'reviews/reviews_base.html' %}
+
+{ block title }
+    {% if form.is_valid and search_text %}
+        Wyniki wyszukiwania dla {{ search_text }}
+    {% else %}
+        Wyszukiwarka książek
+    {% endif %}
+{ endblock }
+
+{% block content %}
+<h2>Wyszukaj książki.</h2>
+<form>
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Szukaj</button>
+</form>
+
+{% if form.is_valid and search_text %}
+    <h3>Wyniki wyszukiwania dla <em>{{ search_text }}</em></h3>
+    <ul class="list-group">
+    {% for book in books %}
+        <li class="list-group-item">
+            <span class="text-info">Tytuł</span> <a href="{% url 'book_detail' book.pk %}">{{ book }}</a>
+            <br/>
+            <span class="text-info">Współautorzy: </span>
+            {% for contributors in contributors.all %}
+                {{ contributors.first_names }} {{ contributors.last_names }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </li>
+        {% empty %}
+            <li class="list-group-item">Nie znaleziono wyników.</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

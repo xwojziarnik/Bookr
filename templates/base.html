@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Source+Sans+Pro&display=swap">
 
-    <title>Recenzje książek</title>
+    <title>{% block title %}Bookr{% endblock %}</title>
   </head>
   <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
@@ -32,8 +32,8 @@
                 <a class="nav-link" href="#">Wyloguj</a>
               </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <form action="{% url 'book_search' %}" class="form-inline my-2 my-lg-0">
+             <input class="form-control mr-sm-2" type="search" placeholder="Szukaj" aria-label="Search" name="search" value="{{ search_text }}" minlength="3">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
           </div>
