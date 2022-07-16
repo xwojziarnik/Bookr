@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, book_list, book_detail, book_search, publisher_edit
+from .views import index, book_list, book_detail, book_search, publisher_edit, review_edit
 
 urlpatterns = [
     path('', index, name='index'),
@@ -7,5 +7,7 @@ urlpatterns = [
     path('books/<int:pk>/', book_detail, name="book_detail"),
     path('book-search/', book_search, name='book_search'),
     path('publishers/<int:pk>/', publisher_edit, name='publisher_edit'),
-    path('publishers/new/', publisher_edit, name='publisher_create')
+    path('publishers/new/', publisher_edit, name='publisher_create'),
+    path('books/<book_pk>/reviews/new/', review_edit, name="review_create"),
+    path('books/<book_pk>/reviews/<reviews_pk>/', review_edit, name="review_edit"),
 ]

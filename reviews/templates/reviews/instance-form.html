@@ -15,6 +15,11 @@
         Tworzenie nowego {{ model_type }}
     {% endif %}
 </h2>
+<p>
+    {% if related_instance and related_model_type %}
+        <p>Dla instancji {{ related_model_type }} <em>{{ related_instance }}</em></p>
+    {% endif %}
+</p>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

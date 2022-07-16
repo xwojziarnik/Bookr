@@ -31,8 +31,10 @@
                         <br>
                         <span class="text-info">Twórca: </span><span>{{ review.creator.username }}</span>
                         <br>
+                        <a class="btn btn-primary" href="{% url 'review_edit' book.pk review.pk %}">Edytuj recenzję</a>
                   </li>
             {% endfor %}
             </ul>
       {% endif %}
+<a class="btn btn-primary" href="{% url 'review_create' book.pk %}">Dodaj recenzję</a>
 {% endblock %}
