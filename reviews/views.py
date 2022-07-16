@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Book, Contributor
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from .models import Book, Contributor, Publisher
 from .utils import average_rating
-from .forms import SearchForm
+from .forms import SearchForm, PublisherForm
 
 
 def index(request):
@@ -77,3 +78,24 @@ def book_search(request):
                 books.add(book)
 
     return render(request, "reviews/search-results.html", {"form": form, "search_text": search_text, "books": books})
+
+
+def publisher_edit(request, pk=None):
+    if pk is not None:
+        publisher = get_object_or_404(Publisher, pk=pk)
+    else:
+        publisher = None
+
+    if request.method == "POST":
+        form = PublisherForm(request.POST, instance=publisher)
+        if form.is_valid():
+            updated_publisher = form.save()
+            if publisher is None:
+                messages.success(request, "Obiekt Publisher {} został utworzony.".format(updated_publisher))
+            else:
+                messages.success(request, "Obiekt Publisher {} został zaktualizowany.".format(updated_publisher))
+            return redirect("publisher_edit", updated_publisher.pk)
+
+    else:
+        form = PublisherForm(instance=publisher)
+        return render(request, "reviews/form-example.html", {"method": request.method, "form": form})
