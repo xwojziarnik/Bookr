@@ -4,11 +4,20 @@
       <br>
       <h3>Informacje o książce</h3>
       <hr>
+      {% if book.cover %}
+            <img src="{{ book.cover.url }}">
+            <br>
+      {% endif %}
       <span class="text-info">Tytuł: </span> <span>{{ book.title }}</span>
       <br>
       <span class="text-info">Wydawnictwo: </span><span>{{ book.publisher }}</span>
       <br>
       <span class="text-info">Data publikacji: </span><span>{{ book.publication_date }}</span>
+      <br>
+      {% if book.sample %}
+            <span class="text-info">Próbka:</span> <a href="{{ book.sample.url }}">Pobierz</a>
+            <br>
+      {% endif %}
       <br>
       {% if not reviews %}
             <hr>
@@ -37,4 +46,5 @@
             </ul>
       {% endif %}
 <a class="btn btn-primary" href="{% url 'review_create' book.pk %}">Dodaj recenzję</a>
+<a class="btn btn-primary" href="{% url 'book_media' book.pk %}">Media</a>
 {% endblock %}
