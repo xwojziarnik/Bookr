@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, book_list, book_detail, book_search, publisher_edit, review_edit
+from .views import index, book_list, book_detail, book_search, publisher_edit, review_edit, book_media
 
 urlpatterns = [
     path('', index, name='index'),
@@ -10,4 +10,5 @@ urlpatterns = [
     path('publishers/new/', publisher_edit, name='publisher_create'),
     path('books/<book_pk>/reviews/new/', review_edit, name="review_create"),
     path('books/<book_pk>/reviews/<reviews_pk>/', review_edit, name="review_edit"),
+    path('books/<int:pk>/media/', book_media, name="book_media")
 ]

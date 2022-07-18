@@ -20,7 +20,7 @@
         <p>Dla instancji {{ related_model_type }} <em>{{ related_instance }}</em></p>
     {% endif %}
 </p>
-<form method="post">
+<form method="post" {% if is_file_upload %}enctype="multipart/form-data"{% endif %}>
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">
