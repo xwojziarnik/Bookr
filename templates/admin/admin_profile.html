@@ -1,0 +1,9 @@
+{% extends 'admin/index.html' %}
+{% block content %}
+<p>Witaj w swoim profilu, {{ user.username }}</p>
+<p>Możesz wykonać następujące operacje:</p>
+<ul>
+    <li><a href="#">Zmień adres e-mail</a></li>
+    <li><a href="#">Dodaj zdjęcie profilowe</a></li>
+</ul>
+{% endblock %}
