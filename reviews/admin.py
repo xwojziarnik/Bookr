@@ -6,7 +6,10 @@ class BookAdmin(admin.ModelAdmin):
     list_display = ("title", "isbn")
     list_filter = ("publisher",)
     date_hierarchy = "publication_date"
-    search_fields = ("title", "isbn", "publisher__name")
+    search_fields = ("title", "publisher__name")
+
+    def get_publisher(self, obj):
+        return obj.publisher.name
 
 
 class ReviewAdmin(admin.ModelAdmin):
