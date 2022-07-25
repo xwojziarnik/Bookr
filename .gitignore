@@ -8,3 +8,4 @@ __pycache__/
 .DS_Store
 /bookr_admin/__pycache__/
 /bookr_admin/migrations/__pycache__/
+/filter_demo/
