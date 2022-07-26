@@ -24,7 +24,7 @@ urlpatterns = [
     path('accounts/profile/', profile, name="profile"),
     path('admin/', admin.site.urls),
     path('', include('reviews.urls')),
-    path('', include('filter_demo.urls'))
+    path('book-management/', include('book_management.urls')),
 ]
 
 if settings.DEBUG:
