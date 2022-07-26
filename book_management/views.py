@@ -1,4 +1,5 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView
 from django.http import HttpResponse
 from django.views import View
 from .models import Book
@@ -29,3 +30,8 @@ class BookDeleteView(DeleteView):
     model = Book
     template_name = "book_delete_form.html"
     success_url = "/book-management/delete-success/"
+
+
+class BookRecordDetailView(DetailView):
+    model = Book
+    template_name = 'book_detail.html'
