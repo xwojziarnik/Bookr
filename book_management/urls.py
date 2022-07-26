@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import BookRecordFormView, FormSuccessView
+from .views import BookCreateView, FormSuccessView
 
 urlpatterns = [
-    path('new-book-record/', BookRecordFormView.as_view(), name="book_record_form"),
-    path('new-book-record/entry-success/', FormSuccessView.as_view(), name="form_success")
+    path('book-record-create/', BookCreateView.as_view(), name="book_create"),
+    path('book-record-create/entry-success/', FormSuccessView.as_view(), name="form_success")
 ]

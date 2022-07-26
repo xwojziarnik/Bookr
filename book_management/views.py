@@ -1,20 +1,16 @@
+from django.views.generic.edit import CreateView
 from django.http import HttpResponse
-from django.views.generic.edit import FormView
 from django.views import View
-from .forms import BookForm
+from .models import Book
 
 # Create your views here.
 
 
-class BookRecordFormView(FormView):
+class BookCreateView(CreateView):
+    model = Book
+    fields = ["name", "author"]
     template_name = "book_form.html"
-    form_class = BookForm
     success_url = "entry-success/"
-
-
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
 
 
 class FormSuccessView(View):
