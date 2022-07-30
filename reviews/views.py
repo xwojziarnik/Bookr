@@ -202,3 +202,7 @@ def book_media(request, pk):
                    "form": form,
                    "model_type": "Book",
                    "is_file_upload": True})
+
+
+def react_example(request):
+    return render(request, "react-example.html")
