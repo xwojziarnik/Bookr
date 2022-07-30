@@ -13,4 +13,4 @@ def greeting_view(request):
 def greeting_view_user(request):
     """Powitanie użytkownika"""
     user = request.user
-    return HttpResponse("Witaj w witrynie Bookr {username}!".format(username=user))
+    return HttpResponse("Witaj w witrynie Bookr! {username}".format(username=user))
