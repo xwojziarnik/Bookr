@@ -205,4 +205,4 @@ def book_media(request, pk):
 
 
 def react_example(request):
-    return render(request, "react-example.html")
+    return render(request, "react-example.html", {"name": "Wojtek", "target": 5})
