@@ -202,7 +202,3 @@ def book_media(request, pk):
                   {"instance": book,
                    "form": form,
                    "model_type": "Book"})
-
-
-def react_example(request):
-    return render(request, "react-example.html", {"name": "Wojtek", "target": 5})
