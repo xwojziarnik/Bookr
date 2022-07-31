@@ -12,9 +12,7 @@
 <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 <script src="{% static 'react-example.js' %}" type="text/babel"></script>
 <script type="text/babel">
-    let name = "{{ name|escapejs }}";
-    let target = {{ target }};
-    ReactDOM.render(<ClickCounter name={ name } target={ target }/>,
+    ReactDOM.render(<BookDisplay url="{% url 'api:book-list' %}"/>,
         document.getElementById('react_container')
     );
 </script>
