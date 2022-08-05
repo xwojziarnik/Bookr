@@ -2,8 +2,6 @@
 
 # Bookr
 
-```In progress```
-
 ## Table of contents:
 
 - [The aim of the project](#the-aim-of-the-project)
@@ -12,7 +10,6 @@
 - [Technologies & Documentation](#technologies--documentation)
 - [Installation](#installation)
 - [Run](#run)
-- [Useful commands](#useful-commands)
 
 ## The aim of the project
 
@@ -24,14 +21,17 @@ I want to consolidate my Django skills while doing an app with a ["Web Developme
 
 ## Features
 
-```In progress```
 
-- [x] Done feature
-- [ ] Not finished feature
+- [x] Listing last reviews on main site,
+- [x] Searching for books using title / contributor,
+- [x] Login / logout,
+- [x] Listing reviews if you're not logged in,
+- [x] Adding / editing reviews if you are logged in & you have permissions,
+- [x] Adding media (cover, sample) into books details,
+- [x] Modified admin site,
+- [ ] Containerize the app
 
 ## Technologies & Documentation
-
-```Delete unnecessary```
 
 - [Python 3](https://docs.python.org/3/)
 - [Django](https://docs.djangoproject.com/en/4.0/)
@@ -140,18 +140,9 @@ We've seen how to run venv. Keep that running!
 git init                                                # to initialize repository
 git clone <repo url>      # to clone this repository into your local machine
 
-python3 manage.py    # using MacOS
-python3 manage.py    # using Windows
+python3 manage.py runserver    # using MacOS
+python3 manage.py runserver    # using Windows
 ```
-</details>
-
-<details>
-<summary>Useful commands:</summary>
-
-```
-# Put here some code, dude!
-```
-
 </details>
 
 And that's it! Great job!
